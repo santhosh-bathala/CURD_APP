@@ -1,0 +1,11 @@
+python -m venv env
+set FLASK_CONFIG=development
+python app.py
+>>> from app.models import Employee
+>>> from app import db, create_app
+>>> app = create_app('development')
+>>> app.app_context().push()
+>>> db.create_all()
+>>> admin = Employee(email="admin@admin.com",username="admin",password="admin2024",is_admin=True)
+>>> db.session.add(admin)
+>>> db.session.commit()
